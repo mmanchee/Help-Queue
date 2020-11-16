@@ -5,10 +5,8 @@ function Ticket() {
   const name2 = "Haley";
   return (
     <React.Fragment>
-      <h3>3a</h3>
-      <h3>{name} and {name2}</h3>
-      <p><em>Firebase entries not saving!</em></p>
-      {/* This is a JSX comment. */}
+      <h3>{props.location} - {props.names}</h3>
+      <p><em>{props.issue}</em></p>
       <hr />
     </React.Fragment>
   );
