@@ -1,24 +1,30 @@
 import React from "react";
 import Ticket from "./Ticket";
+import PropTypes from "prop-types";
 
+// remove const masterTicketList = [ ... ]. We no longer want these.
 
-function TicketList(props) {
+function TicketList(props) { // Add props as parameter.
   return (
     <React.Fragment>
       <hr />
-      {props.TicketList.map((ticket, index) =>
-        <Ticket names={ticket.names}
+      {props.ticketList.map((ticket) => // Loop through the list passed down from TicketControl.
+        <Ticket 
+          whenTicketClicked = {props.onTicketSelection}
+          names={ticket.names}
           location={ticket.location}
           issue={ticket.issue}
-          key={index}/>
-        )}
+          id={ticket.id}
+          key={ticket.id} />
+      )}
     </React.Fragment>
   );
 }
 
 // Add propTypes for ticketList.
 TicketList.propTypes = {
-  ticketList: PropTypes.array
+  ticketList: PropTypes.array,
+  onTicketSelection: PropTypes.func
 };
 
 export default TicketList;
